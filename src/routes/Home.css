@@ -1,23 +1,22 @@
 * {
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #eff3f7;
-  height: 100%;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 
 html,
 body,
-#potato,
+#root,
 .container {
   height: 100%;
-  display: flex;
-  justify-content: center;
+}
+body {
+  background-color: #f2f2f2;
 }
 
 .loader {
@@ -26,15 +25,41 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 300;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .movies {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 10px;
+  box-sizing: border-box;
+
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
-  padding: 50px;
-  padding-top: 70px;
-  width: 80%;
+  justify-content: space-between;
+  gap: 100px 0;
+
+  scroll-snap-type: y mandatory;
+}
+
+.movies a {
+  display: contents;
+}
+
+@media screen and (max-width: 1000px) {
+  .movies {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .movies {
+    gap: 30px 0;
+    padding-top: 50px;
+  }
 }
